@@ -1,0 +1,10 @@
+# Ignorar carpetas de compilación de Python
+**/__pycache__/
+*.pyc
+
+# Ignorar configuraciones de VS Code
+.vscode/
+
+# Ignorar archivos de datos locales (opcional)
+*.csv
+*.db

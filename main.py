@@ -1,3 +1,12 @@
+"""
+main es el archivo de ejecución, en el importamos cliente, servicio, sistema y logger
+para trabajar las clases y sus funcionalidades que definimos en los archivos por separado, debe
+mostrar un menú de opciones que reciba datos del usuario para registrar y hacer posteriormente la gestión
+de los clientes, los servicios y las reservas del sistema llamando las funciones del mismo y controlando el
+flujo general sin que se detenga aun si se presentan errores
+Hacemos uso de try-except para el control de excepciones del sistema
+"""
+
 from cliente import Cliente
 from servicio import *
 from sistema import SistemaGestion
@@ -9,7 +18,7 @@ sistema = SistemaGestion()
 # FUNCIONES AUXILIARES
 # =========================
 
-def mostrar_menu():
+def mostrar_menu():                                 # Función del menú: muestra las opciones del menú
 
     print("""
     ===================================
@@ -32,10 +41,11 @@ def mostrar_menu():
 # REGISTRO CLIENTE
 # =========================
 
-def registrar_cliente():
+def registrar_cliente():                            # Función para crear al cliente: Solicita información y crea un cliente
 
     try:
 
+        # Registra los datos ingresados por teclado del usuario
         documento = input("Documento: ")
         nombre = input("Nombre: ")
         correo = input("Correo: ")
@@ -46,13 +56,16 @@ def registrar_cliente():
             correo
         )
 
-        sistema.registrar_cliente(cliente)
+        sistema.registrar_cliente(cliente)          # Llama al método del objeto
+                                                    # Sistema es la instancia de la clase
 
         print("Cliente registrado correctamente")
 
-    except Exception as e:
+    except Exception as e:                          # Captura cualquier error mientras se ejecuta
+                                                    # almacena el error en la variable e
 
-        Logger.registrar_error(e)
+        Logger.registrar_error(e)                   # Guarda el error en el archivo logs.txt
+                                                    # Muestra el historial de errores
 
         print(f"Error creando cliente: {e}")
 
@@ -63,6 +76,9 @@ def registrar_cliente():
 # CREAR SERVICIO SALA
 # =========================
 
+# Se crea una sucesion de codigo ahora con la funcion para crear la sala
+# Registramos los datos ingresados por el usuario y hacemos el llamado de la instancia de la clase
+# Capturamos los errores y mostramos en pantalla
 def crear_sala():
 
     try:
@@ -237,6 +253,8 @@ def simulacion():
     # CLIENTES VÁLIDOS
     # =========================
 
+    # Creamos una lista que almacene varios registros de clientes
+    # Para esta simulación agrupamos los datos en tuplas para una mejor organizacion
     datos_validos = [
 
         ("10001", "Carlos Ramirez", "carlos@gmail.com"),
@@ -247,6 +265,10 @@ def simulacion():
 
     ]
 
+    # Usamos un ciclo for para recorrer la lista, debe tomar la tupla y separar valores automaticamente
+    # Muestra el resultado ordenado evitando errores como iteración
+    # LLama al archivo cliente.py y valida el documento y se construye un objeto completo
+    # Guarda al cliente en memoria
     for doc, nom, correo in datos_validos:
 
         try:
@@ -257,9 +279,10 @@ def simulacion():
 
             print(f"Cliente válido -> {nom}")
 
-            operaciones += 1
+            operaciones += 1                                        # Contador de operaciones, incrementa el contador
 
-        except Exception as e:
+        except Exception as e:                                      # Captura cualquier error
+                                                                    # Nos permite saber cuantas operaciones se ejecutaron
 
             print(e)
 

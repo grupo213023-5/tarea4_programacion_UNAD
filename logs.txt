@@ -1,0 +1,2 @@
+[EVENTO] 2026-05-08 15:32:45.931112 -> Cliente registrado
+[EVENTO] 2026-05-08 15:33:18.713221 -> Servicio agregado

@@ -1,9 +1,17 @@
+"""
+El archivo central se comunica con el resto permitiendo añadir las funciones centrales necesarias
+para el correcto funcionamiento del sistema, debe almacenar y manejar las listas internas para ver
+resultados en el archivo main por donde se ejecuta
+"""
+
 from logger import Logger
 from reserva import Reserva
 from excepciones import *
 
-class SistemaGestion:
+# Clase principal: Representa la empresa completa
+class SistemaGestion:                   
 
+    # Listas internas: aquí se almacenan objetos en memoria
     def __init__(self):
 
         self.clientes = []
@@ -14,11 +22,11 @@ class SistemaGestion:
     # CLIENTES
     # =========================
 
-    def registrar_cliente(self, cliente):
+    def registrar_cliente(self, cliente):               # Función para definir a los clientes
 
         try:
 
-            self.clientes.append(cliente)
+            self.clientes.append(cliente)               # Se almacena dentro de la lista
 
             Logger.registrar_evento(
                 "Cliente registrado"
@@ -32,7 +40,7 @@ class SistemaGestion:
     # SERVICIOS
     # =========================
 
-    def agregar_servicio(self, servicio):
+    def agregar_servicio(self, servicio):               # Guarda servicios
 
         try:
 
@@ -50,6 +58,10 @@ class SistemaGestion:
     # RESERVAS
     # =========================
 
+    """
+    Conecta cliente, servicio y duración, así se crea una nueva reserva
+    Centraliza la logica dentro una sola función que será aprovechada cuando se le llame
+    """
     def crear_reserva(
         self,
         cliente,

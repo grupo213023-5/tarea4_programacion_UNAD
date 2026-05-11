@@ -1,7 +1,10 @@
+# Es uno de los archivo principales, por medio de el creamos la clase abstracta para crear las clases
+# hijas que heredaran las funciones de la clase principal que implementa validaciones extrictas
 from abc import ABC, abstractmethod
 from excepciones import *
 from validaciones import *
 
+# Clase abstracta servicio: la definimos con ABC, pero no se puede crear directamente
 class Servicio(ABC):
 
     def __init__(self, codigo, nombre, precio):
@@ -16,6 +19,7 @@ class Servicio(ABC):
         self.precio = precio
         self.disponible = True
 
+    # Al crear la clase abstracta, las clases hijas deben implementar la funcion mostrar_detalles
     @abstractmethod
     def mostrar_detalles(self):
         pass
@@ -24,6 +28,7 @@ class Servicio(ABC):
     # SOBRECARGA DE MÉTODOS
     # =========================
 
+    # Permite distintos escenarios de cálculo para no repetir código
     def calcular_costo(
         self,
         cantidad=1,
@@ -48,7 +53,10 @@ class Servicio(ABC):
             )
 
         return total
-    
+
+# Las clases hija: heredan de Servicio
+# Todas comparten (código, nombre y precio)
+# Ademas cada clase redefine mostrar_detalle    
 class ReservaSala(Servicio):
 
     def __init__(

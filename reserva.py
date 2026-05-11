@@ -1,8 +1,12 @@
+# Representa el proceso de contratación, debe manejar el control de estados usando validaciones y
+# Manejo de excepciones
 from excepciones import *
 from validaciones import validar_duracion
 
+# Clase reserva
 class Reserva:
 
+    # Estados simula el flujo real de una reserva con 4 posibilidades (pendiente, confirmada, cancelada y procesada)
     ESTADOS = [
         "pendiente",
         "confirmada",
@@ -38,7 +42,7 @@ class Reserva:
     # CAMBIO DE ESTADOS
     # =========================
 
-    def confirmar(self):
+    def confirmar(self):                                    # Cambia el estado
 
         if self.estado == "cancelada":
 
@@ -48,7 +52,7 @@ class Reserva:
 
         self.estado = "confirmada"
 
-    def cancelar(self):
+    def cancelar(self):                                     # Evita operaciones inválidas
 
         if self.estado == "procesada":
 
@@ -58,7 +62,7 @@ class Reserva:
 
         self.estado = "cancelada"
 
-    def procesar(self):
+    def procesar(self):                                     # Solo funciona si la reserva fue confirmada
 
         if self.estado != "confirmada":
 
