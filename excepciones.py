@@ -8,24 +8,30 @@ Usamos pass para evitar clases vacias y que arroje error
 """
 
 class ErrorSistema(Exception):
+    """Clase base para todas las excepciones personalizadas del sistema."""
     pass
 
 
 class ClienteInvalidoError(ErrorSistema):
+    """Se lanza cuando los datos del cliente no son válidos."""
     pass
 
 
 class ServicioNoDisponibleError(ErrorSistema):
+    """Se lanza cuando un servicio no está disponible para reserva."""
     pass
 
 
 class ReservaError(ErrorSistema):
+    """Se lanza cuando ocurre un error al crear o procesar una reserva."""
     pass
 
 
 class OperacionNoPermitidaError(ErrorSistema):
+    """Se lanza cuando una operación no está permitida en el sistema."""
     pass
 
 
 class CalculoInconsistenteError(ErrorSistema):
+    """Se lanza cuando hay inconsistencias en cálculos internos del sistema."""
     pass
