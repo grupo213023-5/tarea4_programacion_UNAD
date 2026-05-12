@@ -1,13 +1,14 @@
-# Aquí hacemos el registro de eventos, guarda el historial del sistema
+# Aquí hacemos el registro de eventos, guardando el historial del sistema en un archivo
 from datetime import datetime
 
-# Clase Logger
+
+# Clase Logger: encargada de registrar eventos y errores del sistema
 class Logger:
 
     ARCHIVO_LOG = "logs.txt"
 
     @staticmethod
-    def registrar_evento(mensaje):                                      # Guarda acciones normales
+    def registrar_evento(mensaje):  # Guarda acciones normales del sistema
 
         try:
 
@@ -25,8 +26,9 @@ class Logger:
 
             print(f"Error logger: {e}")
 
+
     @staticmethod
-    def registrar_error(error):                                         # Guarda errores
+    def registrar_error(error):  # Guarda errores del sistema
 
         try:
 
