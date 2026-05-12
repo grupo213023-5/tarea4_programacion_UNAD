@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
 ![OOP](https://img.shields.io/badge/Paradigma-POO-green.svg)
 
-Este fue desarrollado bajo los parametros de la programación orientada a objetos usando el lenguaje de programación python para su codificación, se implemento una arquitectura modular en **Python** bajo el paradigma de Programación Orientada a Objetos (POO). basada en clases abstractas, herencia, encapsulación y manejo robusto de excepciones. La aplicación gestiona clientes, servicios y reservas mediante objetos y listas internas, manteniendo estabilidad mediante validaciones estrictas y registros de eventos y errores en archivos log.
+Este proyecto fue desarrollado bajo los parametros de la programación orientada a objetos usando el lenguaje de programación python para su codificación, se implemento una arquitectura modular en **Python** bajo el paradigma de Programación Orientada a Objetos (POO). basada en clases abstractas, herencia, encapsulación y manejo robusto de excepciones. La aplicación gestiona clientes, servicios y reservas mediante objetos y listas internas, manteniendo estabilidad mediante validaciones estrictas y registros de eventos y errores en archivos log.
  
 El archivo principal por donde se ejecuta el codigó es main.py en el se agrupa toda la funcionalidad interna como y debe capturar y mostrar los principales servicios (reservas de salas, alquiler de equipos, asesorías especializadas)
  
